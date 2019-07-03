@@ -106,8 +106,8 @@ open class PDFPageContentView: UIScrollView, UIScrollViewDelegate {
     }
 
     deinit {
-      NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-      NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+      NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 
         self.removeObserver(self, forKeyPath: "frame")
     }
@@ -229,7 +229,7 @@ open class PDFPageContentView: UIScrollView, UIScrollViewDelegate {
     func updateBottomLayoutConstraintWithNotification(_ notification: Notification, show:Bool) {
         let userInfo = (notification as NSNotification).userInfo!
 
-        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let convertedKeyboardEndFrame = self.convert(keyboardEndFrame, from: self.window)
 
         let height: CGFloat
