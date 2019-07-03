@@ -72,12 +72,12 @@ open class PDFPageContentView: UIScrollView, UIScrollViewDelegate {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(PDFPageContentView.keyboardWillShowNotification(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(PDFPageContentView.keyboardWillHideNotification(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
 

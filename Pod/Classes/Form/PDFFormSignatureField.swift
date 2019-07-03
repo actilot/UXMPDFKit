@@ -47,8 +47,8 @@ open class PDFFormSignatureField: PDFFormField {
         
         addSubview(signImage)
         addSubview(signButton)
-      
-      bringSubview(toFront: signButton)
+        
+        bringSubviewToFront(signButton)
     }
     
     required public init?(coder aDecoder: NSCoder) {
